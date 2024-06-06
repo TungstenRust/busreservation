@@ -25,7 +25,8 @@ public class BusScheduleController {
         return ResponseEntity.ok(busScheduleService.getAllBusSchedules());
     }
     @GetMapping("/{routeName}")
-    public ResponseEntity<List<BusSchedule>> getBusScheduleByRouteName(@PathVariable (name = "routeName") String routeName){
+    public ResponseEntity<List<BusSchedule>> getBusScheduleByRouteName
+            (@PathVariable (name = "routeName") String routeName){
         return ResponseEntity.ok(busScheduleService.getSchedulesByRoute(routeName));
     }
 }
