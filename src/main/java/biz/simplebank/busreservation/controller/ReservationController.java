@@ -21,10 +21,12 @@ public class ReservationController {
         final Reservation result = reservationService.addReservation(reservation);
         return new ResponseModel<>(HttpStatus.OK.value(), "Reservation saved", result);
     }
+
     @GetMapping("/all")
     public ResponseEntity<List<Reservation>>getAllReservations(){
         return ResponseEntity.ok(reservationService.getAllReservations());
     }
+
     @GetMapping("/query")
     public ResponseEntity<List<Reservation>>getReservationsByScheduleAndDepartureDate(
         @RequestParam Long scheduleId,
@@ -32,6 +34,7 @@ public class ReservationController {
         ){
         return ResponseEntity.ok(reservationService.getReservationsByScheduleAndDepartureDate(scheduleId, departureDate));
     }
+
     @GetMapping("/all/{mobile}")
     public ResponseEntity<List<Reservation>> getReservationsByMobile(
             @PathVariable(name = "mobile") String mobile
